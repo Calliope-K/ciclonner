@@ -1,42 +1,30 @@
-# Scala CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/sample-config/ for more details
-#
-version: 2
+version: 2.1
 jobs:
-  build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/openjdk:8-jdk
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/repo
-
-    environment:
-      # Customize the JVM maximum heap limit
-      JVM_OPTS: -Xmx3200m
-      TERM: dumb
-
-    steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "build.sbt" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: cat /dev/null | sbt test:compile
-
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: v1-dependencies--{{ checksum "build.sbt" }}
-
-      # run tests!
-      - run: cat /dev/null | sbt test:test
+  compile:
+   docker:
+      - image: ubuntu:20.04
+   steps:
+      - run:
+          command: |
+            apt-get -y update && apt-get -y upgrade && apt-get -y install ca-certificates
+      - run:
+          command: |
+            export DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get -y upgrade && apt-get -y install tzdata git automake lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng bc libstdc++6 wget python3 python3-pip python gcc clang libssl-dev rsync flex git-lfs libz3-dev libz3-4 axel
+            ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+            dpkg-reconfigure --frontend noninteractive tzdata
+            python3 -m pip  install networkx
+            git config --global user.name "Takanashi-Hikari"
+            git config --global user.email "firsname76@gmail.com"
+            git clone https://$GITHUB_TOKEN@github.com/Takanashi-Hikari/TEA-PROJECT -b 42 && cd TEA-PROJECT
+            git remote add rora https://source.codeaurora.org/quic/la/kernel/msm-4.19
+            git fetch rora kernel.lnx.4.19.r10-rel
+            git checkout rora/kernel.lnx.4.19.r10-rel
+            git checkout -b msm419
+            git push --set-upstream origin msm419
+            source run.sh
+          no_output_timeout : 5h
+workflows:
+  version: 2.1
+  cooking:
+    jobs:
+      - compile 
