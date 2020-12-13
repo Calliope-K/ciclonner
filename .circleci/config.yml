@@ -21,7 +21,6 @@ jobs:
             git checkout rora/kernel.lnx.4.19.r10-rel
             git checkout -b msm419
             git push --set-upstream origin msm419
-            source run.sh
           no_output_timeout : 5h
 workflows:
   version: 2.1
