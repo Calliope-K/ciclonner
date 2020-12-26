@@ -15,9 +15,10 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "Calliope-K"
             git config --global user.email "firsname76@gmail.com"
-            git clone git://gcc.gnu.org/git/gcc.git && cd gcc
+            git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 -b clang-r399163b
+            cd linux-x86
             git remote add origin https://github.com/Calliope-K/Tea-Toolchain.git
-            git push https://$GITHUB_TOKEN@github.com/Calliope-K/Tea-Toolchain.git --all
+            git push https://$GITHUB_TOKEN@github.com/Calliope-K/Tea-Toolchain.git
           no_output_timeout : 5h
 workflows:
   version: 2.1
