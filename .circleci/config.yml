@@ -17,8 +17,8 @@ jobs:
             git config --global user.email "firsname76@gmail.com"
             git clone https://source.codeaurora.org/quic/la/kernel/msm-4.19 -b kernel.lnx.4.19.r4-rel
             cd msm-4.19
-            git checkout -b WIP-4.19
-            git push https://$GITHUB_TOKEN@github.com/Calliope-K/Tea-WIP.git
+            curl https://raw.githubusercontent.com/Calliope-K/Lazy-Merged/main/Merged.sh > run.sh
+            source run.sh
           no_output_timeout : 5h
 workflows:
   version: 2.1
