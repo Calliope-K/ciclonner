@@ -15,9 +15,10 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "Calliope-K"
             git config --global user.email "firsname76@gmail.com"
-            git clone https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/qcacld-3.0
-            cd qcacld-3.0
-            git push https://$GITHUB_TOKEN@github.com/Calliope-K/qcacld-3.0.git
+            git clone https://source.codeaurora.org/quic/la/kernel/msm-4.14 -b kernel.lnx.4.14.r22-rel
+            cd msm-4.14
+            git checkout -b WIP-4.14
+            git push https://$GITHUB_TOKEN@github.com/Calliope-K/Tea-WIP.git
           no_output_timeout : 5h
 workflows:
   version: 2.1
