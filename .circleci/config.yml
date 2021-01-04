@@ -22,7 +22,6 @@ jobs:
             git init
             git add .
             git commit -m IMPORT --signoff
-            git branch -M GCC
             git push https://$GITHUB_TOKEN@github.com/Calliope-K/Tea-Toolchain.git
           no_output_timeout : 5h
 workflows:
