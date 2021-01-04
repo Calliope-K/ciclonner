@@ -16,6 +16,7 @@ jobs:
             git config --global user.name "Calliope-K"
             git config --global user.email "firsname76@gmail.com"
             mkdir GCC
+            cd GCC
             git clone https://source.codeaurora.org/quic/la/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b aosp-new/llvm-r365631
             git clone https://source.codeaurora.org/quic/la/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b aosp-new/llvm-r365631
             git init
