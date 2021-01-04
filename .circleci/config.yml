@@ -15,9 +15,13 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "Calliope-K"
             git config --global user.email "firsname76@gmail.com"
-            git clone https://source.codeaurora.org/quic/la/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b aosp-new/llvm-r316199
-            cd aarch64-linux-android-4.9
-            git checkout -b ARM64-LLVM
+            mkdir GCC
+            git clone https://source.codeaurora.org/quic/la/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b aosp-new/llvm-r365631
+            git clone https://source.codeaurora.org/quic/la/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b aosp-new/llvm-r365631
+            git init
+            git add .
+            git commit -m IMPORT --signoff
+            git branch -M GCC
             git push https://$GITHUB_TOKEN@github.com/Calliope-K/Tea-Toolchain.git
           no_output_timeout : 5h
 workflows:
