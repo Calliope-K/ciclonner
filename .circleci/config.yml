@@ -23,13 +23,13 @@ jobs:
             git add .
             git commit -m IMPORT-ARM64 --signoff
             git checkout -b ARM64
+            git push --set-upstream https://$GITHUB_TOKEN@github.com/Calliope-K/Tea-Toolchain.git ARM64
             git clone https://source.codeaurora.org/quic/la/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b aosp-new/llvm-r365631
             cd arm-linux-androideabi-4.9
             git init
             git add .
             git commit -m IMPORT-ARM32 --signoff
             git checkout -b ARM32
-            git push --set-upstream https://$GITHUB_TOKEN@github.com/Calliope-K/Tea-Toolchain.git ARM64
             git push --set-upstream https://$GITHUB_TOKEN@github.com/Calliope-K/Tea-Toolchain.git ARM32
           no_output_timeout : 5h
 workflows:
