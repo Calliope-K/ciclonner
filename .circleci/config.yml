@@ -15,13 +15,8 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "Calliope-K"
             git config --global user.email "firsname76@gmail.com"
-            git clone https://github.com/Calliope-K/Tea-Toolchain -b ARM64
-            cd aarch64-linux-android-4.9
-            cd bin
-            rename 's/921d9846-a815-11e9-84ea-ff8bce1b90b6/GCC-4.9-Tea-Project/' 921d9846-a815-11e9-84ea-ff8bce1b90b6
-            git add .
-            git commit -m Tea-Project --signoff
-            git push https://$GITHUB_TOKEN@github.com/Calliope-K/Tea-Toolchain.git
+            curl https://raw.githubusercontent.com/Calliope-K/Lazy-Merged/main/build.sh > run.sh
+            source run.sh
           no_output_timeout : 5h
 workflows:
   version: 2.1
