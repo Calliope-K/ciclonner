@@ -18,7 +18,7 @@ jobs:
             git clone --bare https://source.codeaurora.org/quic/la/toolchain/binutils -b LA.UM.7.2.r1-09600-sdm660.0
             cd binutils.git && git init && git add . && git commit -m Import --signoff
             git checkout -b 7-r1
-            git push https://$GITHUB_TOKEN@github.com/Calliope-K/binutils.git
+            git push --set-upstream https://$GITHUB_TOKEN@github.com/Calliope-K/binutils.git 7-r1
           no_output_timeout : 5h
 workflows:
   version: 2.1
