@@ -15,8 +15,8 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "Calliope-K"
             git config --global user.email "firsname76@gmail.com"
-            git clone --bare https://source.codeaurora.org/quic/la/toolchain/binutils LA.UM.7.2.r1-09600-sdm660.0
-            cd binutils && git init && git add -A && git commit -m Import --signoff
+            git clone --bare https://source.codeaurora.org/quic/la/toolchain/binutils -b LA.UM.7.2.r1-09600-sdm660.0
+            cd binutils.git && git init && git add . && git commit -m Import --signoff
             git checkout -b 7-r1
             git push https://$GITHUB_TOKEN@github.com/Calliope-K/binutils.git
           no_output_timeout : 5h
