@@ -16,7 +16,7 @@ jobs:
             git config --global user.name "ビクセル"
             git config --global user.email "vcyzscape@gmail.com"
             git clone https://source.codeaurora.org/quic/la/kernel/msm-4.4 -b kernel.lnx.4.4.r38-rel
-            cd kernel.lnx.4.4.r38-rel
+            cd msm-4.4
             git branch -M pie
             git push --set-upstream https://$GITHUB_TOKEN@github.com/TeaProject/android-kernel-sdm660.git pie
           no_output_timeout : 5h
