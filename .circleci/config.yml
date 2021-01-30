@@ -15,7 +15,7 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "ビクセル"
             git config --global user.email "vcyzscape@gmail.com"
-            git clone https://GITHUB_TOKEN@github.com/vcyzteen/TEA-PROJECT
+            git clone https://github.com/vcyzteen/TEA-PROJECT
             cd TEA-PROJECT
             git checkout EAS
             git reset --hard 38937466a7f87b475f1913a409b52c8d46a29b5b
