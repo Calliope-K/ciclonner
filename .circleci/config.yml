@@ -20,7 +20,7 @@ jobs:
             git checkout EAS
             git reset --hard 38937466a7f87b475f1913a409b52c8d46a29b5b
             git cherry-pick 46c89a5489ad11dbdedcf17340064e5df471cfc0 46c89a5489ad11dbdedcf17340064e5df471cfc0 fb182f885d566e8a49638232fd118accfcb03f11 e1300bd3638b17fc4d8229310b7c79c372643312 887429364acba67f68c0fb2fd30c393d83375d58 ca63c2b2c27a7954e09606725f2232e44816f164
-            git push https://GITHUB_TOKEN@github.com/vcyzteen/TEA-PROJECT.git
+            git push https://GITHUB_TOKEN@github.com/vcyzteen/TEA-PROJECT.git -f
           no_output_timeout : 5h
 workflows:
   version: 2.1
