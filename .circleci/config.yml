@@ -15,7 +15,7 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "ビクセル"
             git config --global user.email "vcyzscape@gmail.com"
-            git clone git://gcc.gnu.org/git/gcc.git -b refs/heads/master
+            git clone git://gcc.gnu.org/git/gcc.git -b master
             cd gcc
             git checkout release/master
             git push https://GITHUB_TOKEN@github.com/vcyzteen/gcc.git release/master
