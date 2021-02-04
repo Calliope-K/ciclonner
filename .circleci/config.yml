@@ -17,8 +17,8 @@ jobs:
             git config --global user.email "vcyzscape@gmail.com"
             git clone git://gcc.gnu.org/git/gcc.git -b master
             cd gcc
-            git checkout release/master
-            git push https://GITHUB_TOKEN@github.com/vcyzteen/gcc.git release/master
+            git checkout -b release/master
+            git push --set-upstream https://GITHUB_TOKEN@github.com/vcyzteen/gcc.git release/master
           no_output_timeout : 5h
 workflows:
   version: 2.1
