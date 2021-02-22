@@ -15,10 +15,10 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "ビクセル"
             git config --global user.email "vcyzscape@gmail.com"
-            git clone git://gcc.gnu.org/git/gcc.git -b master
-            cd gcc
-            git checkout -b release/master
-            git push --set-upstream https://GITHUB_TOKEN@github.com/vcyzteen/gcc.git release/master
+            git clone https://github.com/travarilo/proprietary_vendor_asus -b lineage-17.1
+            cd proprietary_vendor_asus
+            git checkout -b 10
+            git push --set-upstream https://GITHUB_TOKEN@github.com/vcyzteen/propertary-vendor-asus.git 10
           no_output_timeout : 5h
 workflows:
   version: 2.1
