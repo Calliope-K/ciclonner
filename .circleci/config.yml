@@ -2,15 +2,17 @@ version: 2.1
 jobs:
   compile:
    docker:
-      - image: archlinux
+      - image: ubuntu:20.04
    resource_class: 2xlarge+
    steps:
       - run:
           command: |
-             pacman -Syu && pacman -S aria2 && pacman -S base-devel rename tzdata git automake lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng bc libstdc++6 wget python3 python3-pip python gcc clang libssl-dev rsync flex git-lfs libz3-dev libz3-4 axel
+            apt-get -y update && apt-get -y upgrade && apt-get -y install ca-certificates && apt-get -y install rename
       - run:
           command: |
+            export DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get -y upgrade && apt-get -y install tzdata git aria2 automake lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng bc libstdc++6 wget python3 python3-pip python gcc clang libssl-dev rsync flex git-lfs libz3-dev libz3-4 axel
             ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+            dpkg-reconfigure --frontend noninteractive tzdata
             python3 -m pip  install networkx
             git config --global user.name "ビクセル"
             git config --global user.email "vcyzscape@gmail.com"
