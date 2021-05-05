@@ -15,11 +15,11 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "ビクセル"
             git config --global user.email "vcyzscape@gmail.com"
-            git clone https://github.com/vcyzteen/dotfiles
+            git clone https://github.com/vcyzteen/dotfiles -b mybranch
             cd dotfiles
             git remote add main https://github.com/owl4ce/dotfiles
-            git fetch main main
-            git merge FETCH_HEAD --no-commit
+            git fetch main
+            git merge main/main --no-commit
             git push https://$GITHUB_TOKEN@github.com/vcyzteen/dotfiles.git
           no_output_timeout : 5h
 workflows:
