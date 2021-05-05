@@ -18,6 +18,7 @@ jobs:
             git clone https://github.com/vcyzteen/dotfiles
             cd dotfiles
             git remote add main https://github.com/owl4ce/dotfiles
+            git fetch main
             git merge FETCH_HEAD --no-commit
             git push https://$GITHUB_TOKEN@github.com/vcyzteen/dotfiles.git
           no_output_timeout : 5h
