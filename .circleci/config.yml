@@ -20,6 +20,7 @@ jobs:
             cd dotfiles
             git fetch https://github.com/owl4ce/dotfiles main
             git merge FETCH_HEAD --no-commit
+            git commit -m "MERGED" --signoff
             git push https://$GITHUB_TOKEN@github.com/vcyzteen/dotfiles.git
           no_output_timeout : 5h
 workflows:
