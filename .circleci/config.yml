@@ -16,8 +16,8 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "ビクセル"
             git config --global user.email "vcyzscape@gmail.com"
-            git clone https://gitlab.com/asus-sdm660-4.19/kernel_asus_sdm660-4.19
-            cd kernel_asus_sdm660-4.19
+            git clone https://$GITHUB_TOKEN@github.com/vcyzteen/baka.git
+            cd baka
             git remote add home https://source.codeaurora.org/quic/la/kernel/msm-4.19
             git fetch home LA.UM.9.2.1.r1-07000-sdm660.0
             git checkout home/LA.UM.9.2.1.r1-07000-sdm660.0
