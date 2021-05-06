@@ -18,8 +18,11 @@ jobs:
             git config --global user.email "vcyzscape@gmail.com"
             git clone https://gitlab.com/asus-sdm660-4.19/kernel_asus_sdm660-4.19
             cd kernel_asus_sdm660-4.19
-            git remote add home https://github.com/vcyzteen/baka.git
-            git push https://$GITHUB_TOKEN@github.com/vcyzteen/baka.git
+            git remote add home https://source.codeaurora.org/quic/la/kernel/msm-4.19
+            git fetch home LA.UM.9.2.1.r1-07000-sdm660.0
+            git checkout home/LA.UM.9.2.1.r1-07000-sdm660.0
+            git checkout -b CAF
+            git push https://$GITHUB_TOKEN@github.com/vcyzteen/baka.git CAF
           no_output_timeout : 5h
 workflows:
   version: 2.1
