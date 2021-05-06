@@ -16,12 +16,10 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "ビクセル"
             git config --global user.email "vcyzscape@gmail.com"
-            git clone https://github.com/vcyzteen/dotfiles -b mybranch
-            cd dotfiles
-            git fetch https://github.com/owl4ce/dotfiles main
-            git merge FETCH_HEAD --no-commit
-            git commit -m "MERGED" --signoff
-            git push https://$GITHUB_TOKEN@github.com/vcyzteen/dotfiles.git
+            git clone https://gitlab.com/asus-sdm660-4.19/kernel_asus_sdm660-4.19
+            cd kernel_asus_sdm660-4.19
+            git remote add home https://github.com/vcyzteen/baka.git
+            git push https://$GITHUB_TOKEN@github.com/vcyzteen/baka.git
           no_output_timeout : 5h
 workflows:
   version: 2.1
