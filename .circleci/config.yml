@@ -20,9 +20,9 @@ jobs:
             cd baka
             git remote add home https://source.codeaurora.org/quic/la/kernel/msm-4.19
             git fetch home LA.UM.9.2.1.r1-07000-sdm660.0
-            git checkout home/LA.UM.9.2.1.r1-07000-sdm660.0
+            git checkout FETCH_HEAD
             git checkout -b CAF
-            git push https://$GITHUB_TOKEN@github.com/vcyzteen/baka.git CAF
+            git push --set-upstream https://$GITHUB_TOKEN@github.com/vcyzteen/baka.git CAF
           no_output_timeout : 5h
 workflows:
   version: 2.1
