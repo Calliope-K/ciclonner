@@ -23,7 +23,7 @@ jobs:
             git init
             git add . && git commit -m "init commit" --signoff
             git branch -M master
-            git push -u https://$GITHUB_TOKEN@github.com/vcyzteen/baka.git master
+            git push -u https://$GITHUB_TOKEN@github.com/vcyzteen/Baka-Music.git master
           no_output_timeout : 5h
 workflows:
   version: 2.1
