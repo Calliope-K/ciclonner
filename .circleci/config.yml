@@ -16,14 +16,10 @@ jobs:
             python3 -m pip  install networkx
             git config --global user.name "ビクセル"
             git config --global user.email "vcyzscape@gmail.com"
-            git clone https://github.com/Kasiits/FLUTTER-UI-Showcase
-            cd FLUTTER-UI-Showcase
-            rm -rf BANK HOTEL LOGIN LOGIN_2 SOCIAL_MEDIA LICENCE README.md BOOKS ANIMAL_SHELTER
-            cd MUSIC
-            git init
-            git add . && git commit -m "init commit" --signoff
-            git branch -M master
-            git push -u https://$GITHUB_TOKEN@github.com/vcyzteen/Baka-Music.git master
+            git clone https://source.codeaurora.org/quic/la/kernel/msm-4.4 -b kernel.lnx.4.4.r42-rel
+            cd msm-4.4
+            git branch -M kernel.lnx.4.4.r42-rel
+            git push -u https://$GITHUB_TOKEN@github.com/vcyzteen/baka.git kernel.lnx.4.4.r42-rel
           no_output_timeout : 5h
 workflows:
   version: 2.1
