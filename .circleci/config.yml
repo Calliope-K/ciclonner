@@ -7,20 +7,21 @@ jobs:
    steps:
       - run:
           command: |
-            apt-get -y update && apt-get -y upgrade && apt-get -y install ca-certificates && apt-get -y install rename
+            apt-get -y update && apt-get -y upgrade && apt-get -y install ca-certificates && apt-get -y install rename && apt install apt-transport-https curl software-properties-common
       - run:
           command: |
             export DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get -y upgrade && apt-get -y install tzdata git aria2 automake lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng bc libstdc++6 wget python3 python3-pip python gcc clang libssl-dev rsync flex git-lfs libz3-dev libz3-4 axel
             ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
             dpkg-reconfigure --frontend noninteractive tzdata
             python3 -m pip  install networkx
+            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+            add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+            apt-cache policy docker-ce
+            apt install docker-ce
+            systemctl status docker
+            docker pull ghcr.io/vcyzteen/dockerfile:master
             git config --global user.name "ビクセル"
             git config --global user.email "vcyzscape@gmail.com"
-            git clone https://github.com/vcyzteen/baka.git -b kernel.lnx.4.4.r42-rel
-            cd baka
-            curl https://raw.githubusercontent.com/vcyzteen/Lazy-Merged/main/Merged.sh > run.sh
-            source run.sh
-            git push https://$GITHUB_TOKEN@github.com/vcyzteen/baka.git
           no_output_timeout : 5h
 workflows:
   version: 2.1
